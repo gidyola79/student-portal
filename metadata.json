@@ -1,0 +1,6 @@
+{
+  "name": "Student Portal Dashboard",
+  "description": "A modern, highly polished, responsive Student Portal Dashboard featuring dynamic dashboard overview, course management, assignments tracker, GPA calculator, real-time-like notifications, and dark mode.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

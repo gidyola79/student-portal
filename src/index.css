@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --color-slate-250: #cbd5e1;
+  --color-slate-850: #1e293b;
+  --color-indigo-505: #4f46e5;
+  --color-rose-505: #e11d48;
+}
+
+/* Base body styles supporting smooth theme transition */
+html, body {
+  font-family: var(--font-sans);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+  height: 100%;
+  background-color: #f8fafc;
+}
+
+html.dark, html.dark body {
+  background-color: #020617;
+}
+
+/* custom glassmorphic backgrounds */
+.glass-panel {
+  isolation: isolate;
+  background: rgba(255, 255, 255, 0.85); /* Increased opacity for excellent contrast */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.61);
+  box-shadow: 0 4px 20px 0 rgba(15, 23, 42, 0.03);
+}
+
+.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.glass-panel-card {
+  transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass-panel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px -8px rgba(99, 102, 241, 0.12);
+}
+
+.dark .glass-panel-card:hover {
+  box-shadow: 0 12px 40px -8px rgba(99, 102, 241, 0.3);
+}
+
+.glass-navbar {
+  background: rgba(255, 255, 255, 0.88); /* Increased text contrast in navbar */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  z-index: 40;
+}
+
+.dark .glass-navbar {
+  background: rgba(15, 23, 42, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Custom gorgeous dynamic background meshes */
+.portal-bg-mesh {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -20;
+  pointer-events: none;
+  background-color: #f8fafc;
+  /* Stunning elegant blue outer glow halo matching image references exactly */
+  box-shadow: inset 0 0 64px rgba(59, 130, 246, 0.28), inset 0 0 20px rgba(99, 102, 241, 0.15);
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, rgba(241, 245, 249, 0.3) 100%),
+    radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.03) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(139, 92, 246, 0.03) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(59, 130, 246, 0.02) 0%, transparent 55%),
+    radial-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 28px 28px;
+}
+
+.dark .portal-bg-mesh {
+  background-color: #020617;
+  box-shadow: none;
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, rgba(139, 92, 246, 0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 90%, rgba(59, 130, 246, 0.08) 0px, transparent 50%);
+  background-size: auto;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.03);
+}
+.dark ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.01);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.4);
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.5);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.6);
+}
+
+/* Custom interactive ripple effects */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Enhanced Light Theme Visibility & Professional Bold Overrides */
+html:not(.dark) .text-slate-400 {
+  color: #475569 !important; /* Darkened from standard slate-400 to robust slate-600 level */
+}
+
+html:not(.dark) .text-slate-500 {
+  color: #334155 !important; /* Darkened from standard slate-500 to premium slate-700 level */
+  font-weight: 500 !important;
+}
+
+html:not(.dark) .text-slate-600 {
+  color: #1e293b !important; /* Darkened from standard slate-600 to commanding slate-800 level */
+  font-weight: 500 !important;
+}
+
+html:not(.dark) .text-slate-700 {
+  color: #0f172a !important; /* Darkened from standard slate-700 to bold deep charcoal/slate-900 */
+}
+
+html:not(.dark) .text-gray-400 {
+  color: #4b5563 !important; /* Darkened standard gray-400 to clear, legible gray-600 */
+}
+
+html:not(.dark) .text-gray-500 {
+  color: #374151 !important; /* Darkened standard gray-500 to gray-700 for solid readability */
+  font-weight: 500 !important;
+}
+
+html:not(.dark) .text-gray-600 {
+  color: #111827 !important; /* Darkened standard gray-600 to robust gray-900 */
+}
+
+html:not(.dark) .text-[11px].text-slate-500,
+html:not(.dark) .text-xs.text-slate-500 {
+  color: #1e293b !important; /* Increase ultra-small light mode text elements visibility */
+  font-weight: 600 !important;
+}
+
+html:not(.dark) .text-slate-500.dark\:text-slate-400 {
+  color: #1e293b !important;
+}
+
+html:not(.dark) .text-slate-600.dark\:text-slate-400 {
+  color: #0f172a !important;
+}
+
